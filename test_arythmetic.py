@@ -27,7 +27,12 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(arythmetic.divide(-10, 4), -2.5)
         self.assertEqual(arythmetic.divide(-1, -2), 0.5)
         self.assertEqual(arythmetic.divide(999999.99, 0.01), 99999999)
-        self.assertRaises(ValueError, arythmetic.divide, 10, 0)
+        # self.assertRaises(ValueError, arythmetic.divide, 10, 0)
+        with self.assertRaises(ValueError):
+            arythmetic.divide(10, 0)
+            arythmetic.divide(0, 0)
+            arythmetic.divide(-10, 0)
+        
         
 
 if __name__ == '__main__':
